@@ -1,5 +1,8 @@
 # ProgressJS
-Small yet powerful javascript library for radial progress bars
+Small yet powerful vanilla js library for radial progress bars
+
+# WARNING
+This library currently depends on own helpers (each, parents, css). I'll provide a independet solution as soon as possible.
 
 ### Usage
 ```
