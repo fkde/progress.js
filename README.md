@@ -2,7 +2,7 @@
 Small yet powerful vanilla js library for radial progress bars
 
 # WARNING
-This library currently depends on own helpers (each, parents, css). I'll provide a independet solution as soon as possible.
+This library currently depends on own helpers (each, parents, css). I'll provide a independent solution as soon as possible.
 
 ### Usage
 ```
