@@ -1,5 +1,17 @@
 // Public proxy object to be able to update progress bars
-let progressJs = {};
+let progressJs = {
+    _instances: [],
+    update: function(id, value) {
+        const progress = this._instances.find((item) => {
+            return item._id === id;
+        });
+        if (progress) {
+            progress.update(value);
+        } else {
+            console.error('Progress item with id ' + id + ' not found.')
+        }
+    }
+};
 
 ((progressJs) => {
 
@@ -298,23 +310,6 @@ let progressJs = {};
 
         this.animateCount();
 
-    };
-
-    progressJs = {
-        _instances: [],
-        create: function(target, options) {
-            return new Progress(target, options);
-        },
-        update: function(id, value) {
-            const progress = this._instances.find((item) => {
-                return item._id === id;
-            });
-            if (progress) {
-                progress.update(value);
-            } else {
-                console.error('Progress item with id ' + id + ' not found.')
-            }
-        }
     };
 
 })(progressJs);
