@@ -1,47 +1,97 @@
 # ProgressJS
-Small yet powerful vanilla js library for radial progress bars
 
-# WARNING
-This library currently depends on own helpers (each, parents, css). I'll provide a independent solution as soon as possible.
+Display any progress or data within an animated (radial) progress bar.
 
-### Usage
+![Overview](demo/overview.png)
+
+## Installation
+
+Include the provided snippet as you like in your markup. 
+This snippet works properly when included in the <head> Tag 
+but also when appended at the end of the body.
+
+```html
+// ...
+<script src="/js/progress.js"></script>
+// ...
 ```
-<script src="/progress.js"></script>
 
+## Usage
+
+Feel free to place a `<div>` container with the following class name into your markup wherever 
+the progress bar should show up.
+
+```html
 <div class="progress-js"></div>
-
 ```
 
-#### Further configuration
+This will render the progress bar with the default settings. You are able 
+to set various options within the `<div>` container by yourself.
+
+### Options
+
+The following options are available to be set on the `<div>` container.
+
+- width (default: 100)      
+- height (default: 100)     
+- strokeWidth (default: 10)
+- fgColor (default: #757AAE)    
+- bgColor (default: #CCCCCC)
+- fontSize (default: 1rem)
+- fontWeight (default: 900)
+- duration (default: 2s)   
+- value (default: 0)      
+- overall (default: 100)
+- suffix (default: %)     
+- shadow (default: false)
+
+You can use these as follows:
+
+```html
+<div class="progress-js" data-width="50" data-height="50" data-stroke-width="3" data-value="50" data-font-size=".7rem" data-font-weight="300"></div>
 ```
-<script src="/progress.js"></script>
 
-<!-- Render progress with predefined value of 70 percent -->
-<div class="progress-js" data-value="70"></div>
+<img src="demo/progress-small.png" style="float: left; padding-right: 1rem;" /> <p style="height: 50px">The example above will produce a small and thin progress circle, starting at 50 percent.</p>
 
-<!-- Render progress with partly calculation -->
-<div class="progress-js" data-current="10" data-overall="100"></div>
+### Updating values
 
-<!-- Render progress with partly calculation and custom foreground and background color -->
-<div class="progress-js" data-current="10" data-overall="100" data-fgcolor="gray" data-bgcolor="black"></div>
+Along with the container adjustments, a proxy object is being injected into the global window object. 
+
+You can access it from everywhere and update specific progress bars as follows:
+
+```html
+// ...
+<div class="progress-js"></div>
+// ...
+
+<script>
+    progressJs.update('progress-js-1', 50);
+</script>
 ```
 
-Possible configuration attributes:
+The first argument is the internal id which simply is the term `progress-js-` along with the actual index number, 
+e.g. use `progress-js-1` for the first ever created progress bar, `progress-js-2` for the second one and so on.
 
-- value
-- current
-- overall
-- width
-- height
-- strokeWidth
-- fgColor
-- bgColor
-- duration
-- fontFamily
-- fontSize
-- label
-- counter
 
-### Notes
+### Manually creating a progress bar
 
-You can use ```value``` only if ```current``` and ```overall``` aren't set and vice versa.
+| <span style="white-space: nowrap;">**⚠ NOTICE**</span> | This is currently not supported, but is planned for the future. |
+|--------------------------------------------------------|-----------------------------------------------------------------|
+
+Just place a container where your progress bar should show up and wire it
+with the created Progress object.
+
+```html
+// ...
+<div class="custom-class"></div>
+// ...
+
+<script>
+    // const progressBar = new Progress('custom-class');
+    const progressBar = new Progress(document.querySelector('custom-class'));
+    progressBar.render();
+    // ...
+    progressBar.update(50);
+</script>
+
+```

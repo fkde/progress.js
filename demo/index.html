@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>ProgressJS Demo</title>
+</head>
+<body>
+
+    <div style="display: flex">
+        <div class="progress-js" data-value="50" data-bg-color="transparent"></div>
+        <div class="progress-js" data-value="4200" data-overall="5000" data-suffix=""></div>
+        <div class="progress-js" data-width="50" data-height="50" data-stroke-width="3" data-value="50" data-font-size=".7rem" data-font-weight="300"></div>
+    </div>
+
+    <script>
+        setTimeout(() => {
+            return;
+            progressJs.update('progress-js-1', 75);
+
+            setTimeout(() => {
+                progressJs.update('progress-js-1', 0);
+            }, 3000);
+
+            setTimeout(() => {
+                progressJs.update('progress-js-2', 0);
+            }, 3000);
+
+            setTimeout(() => {
+                progressJs.update('progress-js-3', 0);
+            }, 3000);
+
+            setTimeout(() => {
+                progressJs.update('progress-js-4', 0);
+            }, 3000);
+
+        }, 3000);
+
+    </script>
+
+    <script src="../src/progress.js"></script>
+
+</body>
+</html>
