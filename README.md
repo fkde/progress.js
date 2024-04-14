@@ -7,13 +7,14 @@ Display any progress or data within an animated (radial) progress bar.
 ## Installation
 
 Include the provided snippet as you like in your markup. 
-This snippet works properly when included in the <head> Tag 
+This snippet works properly when included in the `<head>` tag 
 but also when appended at the end of the body.
 
 ```html
 // ...
 <script src="/js/progress.js"></script>
 // ...
+</body>
 ```
 
 ## Usage
@@ -51,7 +52,9 @@ You can use these as follows:
 <div class="progress-js" data-width="50" data-height="50" data-stroke-width="3" data-value="50" data-font-size=".7rem" data-font-weight="300"></div>
 ```
 
-<img src="demo/progress-small.png" style="float: left; padding-right: 1rem;" /> <p style="height: 50px">The example above will produce a small and thin progress circle, starting at 50 percent.</p>
+The example above will produce a small and thin progress circle, starting at 50 percent.
+
+![Small circle](demo/progress-small.png)
 
 ### Updating values
 
